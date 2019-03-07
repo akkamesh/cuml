@@ -316,7 +316,7 @@ void reduce_rows_by_key(const DataType *d_A, int lda, KeyType *d_keys,
                         char *d_keys_char, int nrows, int ncols, int nkeys, 
                         DataType *d_sums, cudaStream_t stream = 0) {
     // Following kernel needs memset
-    cudaMemsetAsync(d_sums, 0, ncols * nkeys * sizeof(int), stream);
+    cudaMemsetAsync(d_sums, 0, ncols * nkeys * sizeof(DataType), stream);
    
 
     if(nkeys <= SUM_ROWS_BY_KEY_SMALL_K_MAX_K) {
